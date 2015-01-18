@@ -1,0 +1,252 @@
+html, body {
+    position: relative;
+}
+body {  
+    padding-top: 120px;
+    background-color: white;
+    font-family: 'Raleway', "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+a.inner {
+    outline: none;
+    text-decoration:none
+}
+
+a.inner:hover {
+    color: #64a70b;
+}
+a.btn-success {
+    background-color: #64a70b;
+    outline: none !important;
+}
+a.btn-success:active {
+    background-color: #64a70b;
+    outline: none !important;
+}
+a.btn-success:hover {
+    background-color: #64a70b;
+    color: white;
+}
+
+.placeholder {
+    min-height: 600px;
+    background-color: lightgrey;
+    margin-bottom: 0;
+}
+
+p {
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+h2 {
+    color: #64a70b;
+}
+.fa:hover {
+    cursor: default;
+}
+
+.jumbotron {
+    background: url('../images/header.jpg') 0 0 no-repeat;
+    background-size: cover;
+    background-position: 0% 50%;
+}
+.jumbotron h1 {
+    color: black;
+}
+.jumbotron p {
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+/* about section */
+.about {
+    padding-top: 0;
+    padding-bottom: 50px;
+}
+.about h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.about h2 {
+    margin-top: 5px;
+}
+.about .row {
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+.about .arrow {
+    text-align: center;
+}
+.about .icon {
+    text-align: center;
+}
+.about .register-icon {
+    color: darkred;
+}
+.about .reward-icon {
+    color: purple;
+}
+.about .map-icon {
+    height: 60px;
+}
+.about .celebrate-icon {
+    color: orange;
+}
+.about .box:hover {
+    background-color: #f0f0f0;
+} 
+
+.partners {
+    text-align: center;
+    padding-bottom: 70px;
+}
+.partners h2 {
+    margin-top: 40px;
+}
+
+.partners .row {
+    padding-top: 20px;
+}
+.partners .individual .individual_heart {
+    color: lightgrey;
+}
+.partners .individual:hover .individual_heart {
+    color: darkred;
+    cursor: default;
+}
+.partners .individual .individual_name {
+    color: darkgrey;
+}
+.partners .individual:hover .individual_name {
+    color: black;
+    cursor: default;
+}
+
+.register {
+    padding-bottom: 50px;
+}
+
+.register form {
+    font-size: 1.5em;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.register form .active {
+    background-color: #64a70b;
+    color: #f0f0f0;
+}
+
+.register #inputRegister {
+    background-color: #64a70b;
+}
+.register a {
+    outline: none;
+    text-decoration:none
+}
+.register a:hover {
+    color: #64a70b;
+}
+
+.asistence {
+    background-color: #f0f0f0;
+    padding-bottom: 50px;
+} 
+
+.asistence .glyphicon {
+    color: #64a70b;
+    padding-right: 0.5em;
+}
+
+.asistence .project_name {
+    font-size: 1.5em;
+}
+
+.asistence_numbers {
+    font-size: 1.5em;
+}
+
+.asistence_numbers thead tr th {
+    border-bottom-color: #64a70b;
+}
+.asistence_numbers tbody tr td {
+    border-color: #64a70b;
+}
+.asistence a {
+    outline: none;
+    text-decoration:none
+}
+.asistence a:hover {
+    color: #64a70b;
+}
+
+#route {
+    margin-bottom: 3em;
+}
+#contact {
+    background-color: #f0f0f0;
+    padding-bottom: 3em;
+}
+
+#contact ul {
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+#contact a {
+    outline: none;
+    text-decoration:none
+}
+#contact a:hover {
+    color: #64a70b;
+}
+#contact ul .fa {
+    color: #64a70b;
+    min-width: 30px;
+}
+#contact ul .fa-facebook {
+    color: #8b9dc3;
+}
+#contact ul .fa-youtube-play {
+    color: #e52d27;
+}
+#contact .fb-like {
+    font-size: 1.5em;
+    line-height: 2em;
+}
+#footer {
+    padding-top: 5px;
+    font-size: 1.5em;
+    line-height: 2em;
+    color: #f0f0f0;
+    background: #64a70b;
+}
+
+#footer a {
+    outline: none;
+    text-decoration:none;
+    color: #ffffff;
+}
+#footer a:hover {
+    color: #f0f0f0;
+}
+
+.fb-like iframe {
+transform: scale(1.5);
+-ms-transform: scale(1.5); 
+-webkit-transform: scale(1.5); 
+-o-transform: scale(1.5); 
+-moz-transform: scale(1.5); 
+transform-origin: top left;
+-ms-transform-origin: top left;
+-webkit-transform-origin: top left;
+-moz-transform-origin: top left;
+-webkit-transform-origin: top left;
+}
