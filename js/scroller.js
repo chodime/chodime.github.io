@@ -20,6 +20,9 @@ var scroller = function($){
 	
 	var processClick = function(event) {
 		event.preventDefault();
+		if ($(this).attr('id') == 'lang') {
+			return;
+		}
 		var element = $(this);
         var section = $(element.attr('href'))[0];
         var offset = $(element.attr('href')).offset();
