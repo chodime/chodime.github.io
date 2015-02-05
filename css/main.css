@@ -7,6 +7,10 @@ body {
     font-family: 'Raleway', "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
+.cz {
+    display: none;
+}
+
 a.inner {
     outline: none;
     text-decoration:none
