@@ -1,5 +1,7 @@
 var form = function($){
 
+    var currentLanguage = 'en';
+
     var topOffset = $('[data-scroller]').attr('data-offset');
 
     var validateEmail = function validateEmail(email) {
@@ -79,6 +81,21 @@ var form = function($){
         } else {
             $('#inputRegister').attr('disabled', 'disabled');
         }
+    });
+
+    $('#lang').click(function() {
+        var invisibleLanguage = currentLanguage;
+        if (currentLanguage == 'en') {
+           currentLanguage = 'cz';
+        } else {
+           currentLanguage = 'en';
+        }
+        $('.' + invisibleLanguage).each(function() {
+           $(this).css('display', 'none');
+        });
+        $('.' + currentLanguage).each(function() {
+            $(this).css('display', 'initial');
+        });
     });
 
     $('#inputRegister').click(function(event) {
