@@ -190,6 +190,19 @@ h2 {
 #route {
     margin-bottom: 3em;
 }
+
+#support {
+    margin-bottom: 3em;
+}
+
+#support a {
+    outline: none;
+    text-decoration:none
+}
+#support a:hover {
+    color: #64a70b;
+}
+
 #contact {
     background-color: #f0f0f0;
     padding-bottom: 3em;
