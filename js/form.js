@@ -24,6 +24,45 @@ var form = function($){
         return number.replace(/\D/g,'');
     };
 
+    var googleFormId = '1E6cnbxByjpYRXjKeJbgBOj0oODv8GNTEKGn213sa8Qc';
+    var googleFormEntries = {
+        inputName : 'entry.1183915569',
+        inputEmail : 'entry.646985132',
+        inputSize : 'entry.602551427',
+        inputRequests : 'entry.2132595967',
+        inputAmount : 'entry.378396832',
+        inputSource : 'entry.971956177',
+        inputSendEmails : 'entry.1381002933'
+    };
+
+    var sendDataToGoogleForm = function(cb) {
+        var toSend = {};
+        $('#registerForm input,textarea,select').each(function () {
+            var googleId = googleFormEntries[$(this).attr('id')];
+            if (googleId) {
+                if ($(this).attr('type') == 'checkbox') {
+                    toSend[googleId] = $(this).is(':checked');
+                } else {
+                    toSend[googleId] = $(this).val();
+                }
+            }
+        });
+        $('#inputRegister').attr('disabled', 'disabled');
+        $('#inputRegister').html('Processing...');
+        $.ajax({
+            url : 'https://docs.google.com/forms/d/' + googleFormId + '/formResponse',
+            data: toSend,
+            type: 'POST',
+            dataType: 'xml'
+        }).always(function() {
+            $('#inputRegister').html('Register');
+            $('#inputRegister').removeAttr('disabled');
+            if (typeof cb == 'function') {
+                cb();
+            }
+        });
+    };
+
     $('#inputDonate').change(function(event) {
         if($(this).is(':checked')) {
             $('#inputAmount').removeAttr('disabled');
@@ -49,11 +88,8 @@ var form = function($){
         var donateValue = $('#inputAmount').val();
         var willDonate = $('#inputDonate').is(':checked');
         var name = $('#inputName').val();
-        var phone = adjustPhoneNumber($('#inputPhone').val());
 
         validateField($('#inputAmount'), !willDonate || parseInt(donateValue) > 0);
-        $('#inputPhone').val(phone);
-        validateField($('#inputPhone'), !(!phone || phone.trim().length === 0));
         validateField($('#inputEmail'), validateEmail(email));
         validateField($('#inputName'), !(!name || name.trim().length === 0));
 
@@ -65,13 +101,14 @@ var form = function($){
             });
         } else {
             // register in google spreadsheet
-            // go to donation page
-            var totalAmount = 100;
-            if (willDonate) {
-                totalAmount += parseInt(donateValue);
-            }
-            var url = 'http://www.darujspravne.cz/prispevek/' + totalAmount + '/721/';
-            window.location.href = url;
+            sendDataToGoogleForm(function() {
+                var totalAmount = 100;
+                if (willDonate) {
+                    totalAmount += parseInt(donateValue);
+                }
+                var url = 'http://www.darujspravne.cz/prispevek/' + totalAmount + '/721/';
+                window.location.href = url;
+            });
         }
     });
 
