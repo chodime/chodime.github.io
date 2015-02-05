@@ -30,7 +30,15 @@ var form = function($){
             $('#inputAmount').select();
             $('#inputAmount').focus();
         } else {
-            $("#inputAmount").attr('disabled', 'disabled');
+            $('#inputAmount').attr('disabled', 'disabled');
+        }
+    });
+
+    $('#inputWalk').change(function(event) {
+        if($(this).is(':checked')) {
+            $('#inputRegister').removeAttr('disabled');
+        } else {
+            $('#inputRegister').attr('disabled', 'disabled');
         }
     });
 
@@ -49,13 +57,25 @@ var form = function($){
         validateField($('#inputEmail'), validateEmail(email));
         validateField($('#inputName'), !(!name || name.trim().length === 0));
 
-        var errorField = $('#registerForm .has-error').first();
-        if (errorField) {
+        var errorFields = $('#registerForm .has-error');
+        if (errorFields.length > 0) {
+            var errorField = $('#registerForm .has-error').first();
             $('html, body').animate({
                 scrollTop: errorField.offset().top - topOffset - 50
             });
+        } else {
+            // register in google spreadsheet
+            // go to donation page
+            var totalAmount = 100;
+            if (willDonate) {
+                totalAmount += parseInt(donateValue);
+            }
+            var url = 'http://www.darujspravne.cz/prispevek/' + totalAmount + '/721/';
+            window.location.href = url;
         }
     });
+
+    $('#inputWalk').prop('checked', true);
 
 };
 form(jQuery);
