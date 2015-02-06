@@ -102,8 +102,11 @@ var form = function($){
         event.preventDefault();
 
         var email = $('#inputEmail').val();
-        var donateValue = $('#inputAmount').val();
         var willDonate = $('#inputDonate').is(':checked');
+        if (!willDonate) {
+            $('#inputAmount').val('');
+        }
+        var donateValue = $('#inputAmount').val();
         var name = $('#inputName').val();
 
         validateField($('#inputAmount'), !willDonate || parseInt(donateValue) > 0);
