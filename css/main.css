@@ -6,8 +6,10 @@ body {
     background-color: white;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
-
-.cz {
+.navbar-default .navbar-nav li a {
+    font-size: 16px;
+}
+.en {
     display: none;
 }
 
@@ -39,13 +41,13 @@ a.btn-success:hover {
 }
 
 p {
-    font-weight: 500;
+    font-weight: 100;
     font-size: 1.5em;
 }
 
 h1 {
     font-size: 3em;
-    font-weight: 500;
+    font-weight: 100;
     line-height: 1.1;
 }
 
@@ -105,7 +107,14 @@ h2 {
 }
 .about .box:hover {
     background-color: #f0f0f0;
-} 
+}
+.about a {
+    outline: none;
+    text-decoration:none
+}
+.about a:hover {
+    color: #64a70b;
+}
 
 .partners {
     text-align: center;
@@ -119,14 +128,15 @@ h2 {
     padding-top: 20px;
 }
 .partners .individual .individual_heart {
-    color: lightgrey;
+    color: darkred;
+
 }
 .partners .individual:hover .individual_heart {
     color: darkred;
     cursor: default;
 }
 .partners .individual .individual_name {
-    color: darkgrey;
+    color: black;
 }
 .partners .individual:hover .individual_name {
     color: black;
@@ -254,6 +264,24 @@ h2 {
 #footer a:hover {
     color: #f0f0f0;
 }
+
+#partners a {
+    outline: none;
+    text-decoration:none;
+    color: black;
+}
+#partners a:hover {
+    color: #64a70b;
+}
+
+#partners .heart {
+    vertical-align: top;
+}
+
+blockquote {
+    font-size: 1em;
+}
+
 
 .fb-like iframe {
 transform: scale(1.5);

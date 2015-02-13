@@ -1,6 +1,6 @@
 var form = function($){
 
-    var currentLanguage = 'en';
+    var currentLanguage = 'cz';
 
     var topOffset = $('[data-scroller]').attr('data-offset');
 
@@ -94,7 +94,7 @@ var form = function($){
            $(this).css('display', 'none');
         });
         $('.' + currentLanguage).each(function() {
-            $(this).css('display', 'initial');
+            $(this).css('display', 'inline');
         });
     });
 
