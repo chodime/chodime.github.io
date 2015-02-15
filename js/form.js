@@ -156,6 +156,21 @@ var form = function($){
         }
     });
 
+    $('#img-resize-button').click(function(event) {
+        event.preventDefault();
+        if ($('#route-column-1').hasClass('col-lg-7')) {
+            $('#route-column-1').removeClass('col-lg-7');
+            $('#route-column-1').addClass('col-lg-12');
+            $('#route-column-2').removeClass('col-lg-5');
+            $('#route-column-2').addClass('col-lg-12');
+        } else {
+            $('#route-column-1').removeClass('col-lg-12');
+            $('#route-column-1').addClass('col-lg-7');
+            $('#route-column-2').removeClass('col-lg-12');
+            $('#route-column-2').addClass('col-lg-5');
+        }
+    });
+
     $('#inputWalk').prop('checked', true);
     setLanguage('en', 'cz');
 

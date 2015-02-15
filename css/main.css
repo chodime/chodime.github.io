@@ -13,6 +13,24 @@ body {
     display: none;
 }
 
+#img_container {
+    position:relative;
+    display:inline-block;
+    text-align:center;
+}
+#img-resize-button {
+    position:absolute;
+    top:4em;
+    left:3em;
+    cursor: pointer;
+    cursor: hand;
+    color: #64a70b;
+}
+#img-resize-button i:hover {
+    cursor: pointer;
+    cursor: hand;
+    color: #64a70b;
+}
 a.inner {
     outline: none;
     text-decoration:none

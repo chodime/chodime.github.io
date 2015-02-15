@@ -44,7 +44,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><img height="120" src="images/logo.jpg" alt="Chodíme s Asistencí" /></a>
+				<a class="navbar-brand hidden-sm hidden-xs" href="#"><img height="120" src="images/logo.jpg" alt="Chodíme s Asistencí" /></a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -54,7 +54,11 @@
                     <li><a href="#register"><span class="en">REGISTRATION</span><span class="cz">REGISTRACE</span></a></li>
                     <li><a href="#support"><span class="en">SUPPORT US</span><span class="cz">PODPOŘTE NÁS</span></a></li>
 		    <li><a href="#contact"><span class="en">CONTACTS</span><span class="cz">KONTAKTY</span></a></li>
-                    <li><a href="#lang" id="lang" style="min-width: 5em;"><i style="cursor: pointer; padding-right: 0.5em;" class="fa fa-language"></i><span class="en">CZ</span><span class="cz">EN</span></a></li>
+                    <li><a href="#lang" id="lang" style="min-width: 5em;">
+                        <img src="images/EN.jpg" class="cz"/>
+                        <img src="images/CZ.jpg" class="en"/>
+                        <!--<i style="cursor: pointer; padding-right: 0.5em;" class="fa fa-language"></i><span class="en">CZ</span><span class="cz">EN</span>-->
+                    </a></li>
    				</ul>
 			</div>
 		</div>
@@ -86,12 +90,18 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-7">
-                    <div class="row" style="padding-top: 30px;">
-                        <img src="images/route.jpg" border="0" width="666" alt="Route Map"/>
+                <div class="col-lg-7 col-md-12" id="route-column-1">
+                    <div class="row hidden-lg" style="padding-top: 30px;">
+                        <img src="images/route.jpg" border="0" class="img-responsive" style="width: 100%;" alt="Route Map"/>
+                    </div>
+                    <div class="row visible-lg" style="padding-top: 30px;">
+                        <div id="image-container">
+                            <img src="images/route.jpg" border="0" style="width: 100%;" alt="Route Map"/>
+                            <a href="#" data-target="route-column" id="img-resize-button"><i class="fa fa-arrows-alt fa-2x"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-lg-5 col-md-12" id="route-column-2">
                     <div class="row box" style="margin-top: 40px;">
                         <div class="icon col-md-2"><i class="register-icon fa fa-heart-o fa-4x"></i></div>
                         <div class="col-md-10">
@@ -221,8 +231,8 @@
      </div>
 
      <div class="col-md-6" style="padding-right: 0;">
-         <div style="padding-left: 2em;" class="">
-            <img src="images/asistence.jpg"/>
+         <div style="padding-left: 2em;">
+            <img class="img-responsive" style="width: 100%;" src="images/asistence.jpg"/>
          </div>
      </div>
     </div>
