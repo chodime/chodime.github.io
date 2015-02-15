@@ -65,6 +65,29 @@ var form = function($){
         });
     };
 
+    var setLanguage = function(from, to) {
+        var invisibleLanguage = from;
+        currentLanguage = to;
+
+        $('.' + invisibleLanguage).each(function() {
+            $(this).css('display', 'none');
+        });
+        $('.' + currentLanguage).each(function() {
+            $(this).css('display', 'inline');
+        });
+        // update placehodler
+        $('[data-placeholder-' + currentLanguage + ']').each(function() {
+            var value = $(this).attr('data-placeholder-' + currentLanguage);
+            $(this).attr('placeholder', value);
+        });
+        // update text
+        $('[data-text-' + currentLanguage + ']').each(function() {
+            var value = $(this).attr('data-text-' + currentLanguage);
+            $(this).html(value);
+        });
+
+    };
+
     $('#inputDonate').change(function(event) {
         if($(this).is(':checked')) {
             $('#inputAmount').removeAttr('disabled');
@@ -84,18 +107,13 @@ var form = function($){
     });
 
     $('#lang').click(function() {
-        var invisibleLanguage = currentLanguage;
+        var newLanguage;
         if (currentLanguage == 'en') {
-           currentLanguage = 'cz';
+           newLanguage = 'cz';
         } else {
-           currentLanguage = 'en';
+           newLanguage = 'en';
         }
-        $('.' + invisibleLanguage).each(function() {
-           $(this).css('display', 'none');
-        });
-        $('.' + currentLanguage).each(function() {
-            $(this).css('display', 'inline');
-        });
+        setLanguage(currentLanguage, newLanguage);
     });
 
     $('#inputRegister').click(function(event) {
@@ -133,6 +151,7 @@ var form = function($){
     });
 
     $('#inputWalk').prop('checked', true);
+    setLanguage('en', 'cz');
 
 };
 form(jQuery);
