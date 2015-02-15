@@ -50,14 +50,17 @@ var form = function($){
             }
         });
         $('#inputRegister').attr('disabled', 'disabled');
+        var oldHtml = $('#inputRegister').html();
         $('#inputRegister').html('Processing...');
+        $.support.cors = true;
         $.ajax({
             url : 'https://docs.google.com/forms/d/' + googleFormId + '/formResponse',
             data: toSend,
             type: 'POST',
             dataType: 'xml'
-        }).always(function() {
-            $('#inputRegister').html('Register');
+        })
+        .always(function() {
+            $('#inputRegister').html(oldHtml);
             $('#inputRegister').removeAttr('disabled');
             if (typeof cb == 'function') {
                 cb();
@@ -139,13 +142,16 @@ var form = function($){
             });
         } else {
             // register in google spreadsheet
+            var totalAmount = 100;
+            if (willDonate) {
+                totalAmount += parseInt(donateValue);
+            }
+            var url = 'http://www.darujspravne.cz/prispevek/' + totalAmount + '/721/';
+            var tab = window.open(url);
             sendDataToGoogleForm(function() {
-                var totalAmount = 100;
-                if (willDonate) {
-                    totalAmount += parseInt(donateValue);
+                if (tab && typeof tab.focus == 'function') {
+                    tab.focus();
                 }
-                var url = 'http://www.darujspravne.cz/prispevek/' + totalAmount + '/721/';
-                window.location.href = url;
             });
         }
     });
