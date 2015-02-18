@@ -142,7 +142,7 @@ var form = function($){
             });
         } else {
             // register in google spreadsheet
-            var totalAmount = 100;
+            var totalAmount = 200;
             if (willDonate) {
                 totalAmount += parseInt(donateValue);
             }
