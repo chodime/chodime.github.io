@@ -34,7 +34,9 @@ var form = function($){
         inputRequests : 'entry.2132595967',
         inputAmount : 'entry.378396832',
         inputSource : 'entry.971956177',
-        inputSendEmails : 'entry.1381002933'
+        inputSendEmails : 'entry.1381002933',
+        inputPayCache : 'entry.947877091',
+        inputPayCard : 'entry.1448240111'
     };
 
     var sendDataToGoogleForm = function(cb) {
@@ -43,6 +45,8 @@ var form = function($){
             var googleId = googleFormEntries[$(this).attr('id')];
             if (googleId) {
                 if ($(this).attr('type') == 'checkbox') {
+                    toSend[googleId] = $(this).is(':checked');
+                } else if ($(this).attr('type') == 'radio') {
                     toSend[googleId] = $(this).is(':checked');
                 } else {
                     toSend[googleId] = $(this).val();
@@ -141,13 +145,18 @@ var form = function($){
                 scrollTop: errorField.offset().top - topOffset - 50
             });
         } else {
-            // register in google spreadsheet
-            var totalAmount = 200;
-            if (willDonate) {
-                totalAmount += parseInt(donateValue);
+            var willPayCard = $('#inputPayCard').is(':checked');
+
+            var tab = null;
+            if (willPayCard) {
+                var totalAmount = 200;
+                if (willDonate) {
+                    totalAmount += parseInt(donateValue);
+                }
+                var url = 'http://www.darujspravne.cz/prispevek/' + totalAmount + '/721/';
+                tab = window.open(url);
             }
-            var url = 'http://www.darujspravne.cz/prispevek/' + totalAmount + '/721/';
-            var tab = window.open(url);
+            // register in google spreadsheet
             sendDataToGoogleForm(function() {
                 if (tab && typeof tab.focus == 'function') {
                     tab.focus();
@@ -171,6 +180,7 @@ var form = function($){
         }
     });
 
+    $('#inputPayCard').prop('checked', true);
     $('#inputWalk').prop('checked', true);
     setLanguage('en', 'cz');
 
