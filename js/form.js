@@ -153,7 +153,7 @@ var form = function($){
                 if (willDonate) {
                     totalAmount += parseInt(donateValue);
                 }
-                var url = 'http://www.darujspravne.cz/prispevek/200/721/' + totalAmount + '/721/';
+                var url = 'http://www.darujspravne.cz/prispevek/' + totalAmount + '/721/';
                 tab = window.open(url);
             }
             // register in google spreadsheet
